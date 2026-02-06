@@ -14,20 +14,22 @@ export function Experience({
     description: string;
 }) {
     return (
-        <div className="flex bento-card gap-4 h-19">
-            {image}
+        <div className="flex calm-card gap-4 items-center">
+            <div className="shrink-0 rounded-lg overflow-hidden">
+                {image}
+            </div>
             <div className="flex flex-col justify-center gap-1 w-full">
                 <div className="flex items-center justify-between">
-                    <p className="text-xs">{title}</p>
-                    <p className="text-fg-tertiary text-[8px] uppercase">
+                    <p className="text-sm font-medium text-text-primary">{title}</p>
+                    <p className="text-text-tertiary text-xs uppercase">
                         {date}
                     </p>
                 </div>
                 <div className="flex justify-between items-center">
-                    <p className="lg:text-xs text-fg-tertiary text-[10px]">
+                    <p className="text-sm text-text-secondary">
                         {description}
                     </p>
-                    <p className="text-[8px] text-fg-tertiary uppercase">
+                    <p className="text-xs text-text-tertiary uppercase">
                         {location}
                     </p>
                 </div>

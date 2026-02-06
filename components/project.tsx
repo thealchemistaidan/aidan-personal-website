@@ -17,26 +17,28 @@ export function Project({
     return (
         <a
             href={link}
-            className="bento-card flex flex-col gap-2 relative group h-41"
+            className="calm-card flex flex-col gap-3 relative group"
         >
-            <p className="text-xs min-w-64">{name}</p>
-            <p
-                className="text-xs text-fg-tertiary absolute right-[16px] top-[16px] 
-                    group-hover:text-accent duration-300 transition-all ease-in-out"
-            >
-                →
-            </p>
-            <div className="flex gap-2">
+            <div className="flex items-center justify-between">
+                <p className="text-sm font-medium text-text-primary">{name}</p>
+                <p
+                    className="text-sm text-text-tertiary
+                    group-hover:text-accent duration-200 transition-all ease-out"
+                >
+                    →
+                </p>
+            </div>
+            <div className="flex gap-2 flex-wrap">
                 {badges.map((badge) => (
-                    <Badge key={badge} color="orange" className="uppercase">
+                    <Badge key={badge} color="blue" className="uppercase">
                         {badge}
                     </Badge>
                 ))}
             </div>
-            <p className="text-fg-tertiary lg:text-xs min-h-12 text-[10px]">
+            <p className="text-sm text-text-secondary leading-relaxed">
                 {description}
             </p>
-            <div className="flex gap-1">
+            <div className="flex gap-1.5 flex-wrap mt-auto">
                 {technologies.map((tech) => (
                     <TechBadge key={tech}>{tech}</TechBadge>
                 ))}

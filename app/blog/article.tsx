@@ -17,19 +17,19 @@ export function Post({
     return (
         <Link
             href={`/blog/${slug}`}
-            className="flex flex-col bento-card h-19 justify-center gap-2 w-full"
+            className="flex flex-col calm-card justify-center gap-2 w-full"
         >
             <div className="flex items-center justify-between">
-                <p className="text-xs">{title}</p>
-                <p className="text-fg-tertiary text-[8px] uppercase">{date}</p>
+                <p className="text-sm font-medium text-text-primary">{title}</p>
+                <p className="text-text-tertiary text-xs uppercase">{date}</p>
             </div>
             <div className="flex justify-between items-center">
-                <p className="lg:text-xs text-fg-tertiary text-[10px]">
+                <p className="text-sm text-text-secondary">
                     {subtitle}
                 </p>
                 <div className="flex gap-2">
                     {badges?.map((badge, index) => (
-                        <Badge key={index} color="orange" className="uppercase">
+                        <Badge key={index} color="blue" className="uppercase">
                             {badge}
                         </Badge>
                     ))}

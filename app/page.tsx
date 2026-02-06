@@ -5,9 +5,9 @@ import { Footer } from '@/app/sections/footer';
 
 export default function Home() {
     return (
-        <main className="font-mono lg:py-8 py-4 lg:max-w-7xl mx-auto flex flex-1 flex-col lg:px-8 px-4">
+        <main className="lg:py-16 py-8 lg:max-w-5xl mx-auto flex flex-1 flex-col lg:px-8 px-5 gap-12">
             <Header />
-            <div className="flex lg:flex-row flex-col justify-center gap-6">
+            <div className="flex lg:flex-row flex-col justify-center gap-8">
                 <ExperienceSection />
                 <ProjectsSection />
             </div>

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { getPostFrontmatter } from '@/utils/posts';
 import { notFound } from 'next/navigation';
-import { Instrument_Serif } from 'next/font/google';
 import { Header } from '@/app/blog/[article]/header';
 import { Footer } from '@/app/blog/footer';
 
@@ -32,9 +31,9 @@ export default async function Layout({
     const { visibility, title, subtitle } = await getPostFrontmatter(slug);
 
     return (
-        <article className="flex flex-col items-center text-left px-4 lg:py-8 py-4 font-mono gap-8 min-h-screen h-full">
+        <article className="flex flex-col items-center text-left px-5 lg:py-16 py-8 gap-10 min-h-screen h-full">
             <Header title={title} subtitle={subtitle} />
-            <section className="max-w-2xl text-sm leading-relaxed">
+            <section className="max-w-2xl w-full text-base leading-relaxed text-text-primary">
                 {children}
             </section>
             <Footer />

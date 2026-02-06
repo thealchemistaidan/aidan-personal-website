@@ -18,10 +18,10 @@ export type MetadataProps = {
 export default async function Blog() {
     const posts = await getAllPostsFrontmatter();
     return (
-        <main className="font-mono flex items-center flex-col lg:py-8 py-4 px-4 h-full min-h-screen">
+        <main className="flex items-center flex-col lg:py-16 py-8 px-5 h-full min-h-screen">
             <Header />
-            <section className="flex flex-col gap-3 max-w-2xl w-full">
-                <h2 className="text-xs text-fg-tertiary mt-6">WRITING</h2>
+            <section className="flex flex-col gap-4 max-w-2xl w-full mt-8">
+                <h2 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider">WRITING</h2>
                 {posts
                     ?.filter((post) => {
                         if (

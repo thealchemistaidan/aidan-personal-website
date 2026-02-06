@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-type color = 'orange' | 'green';
+type color = 'blue' | 'orange' | 'green';
 
 export function Badge({
     children,
@@ -13,7 +13,7 @@ export function Badge({
 }) {
     return (
         <span
-            className={`${className} w-fit inline px-2 py-0.5 text-[8px] uppercase tracking-wider bg-accent/20 text-accent rounded`}
+            className={`${className} w-fit inline px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider bg-accent/10 text-accent rounded-md`}
         >
             {children}
         </span>
