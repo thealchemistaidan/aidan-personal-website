@@ -1,18 +1,18 @@
+import Image from 'next/image';
 import { Badge } from '@/components/badge';
-import { TechBadge } from '@/components/tech-badge';
 
 export function Project({
     badges,
-    technologies,
     name,
     description,
     link,
+    image,
 }: {
     badges: string[];
-    technologies: string[];
     name: string;
     description: string;
     link: string;
+    image: string;
 }) {
     return (
         <a
@@ -35,14 +35,17 @@ export function Project({
                     </Badge>
                 ))}
             </div>
+            <div className="relative w-full h-36 rounded-lg overflow-hidden bg-bg-section border border-border-light">
+                <Image
+                    src={image}
+                    alt={`${name} screenshot`}
+                    fill
+                    className="object-cover"
+                />
+            </div>
             <p className="text-sm text-text-secondary leading-relaxed">
                 {description}
             </p>
-            <div className="flex gap-1.5 flex-wrap mt-auto">
-                {technologies.map((tech) => (
-                    <TechBadge key={tech}>{tech}</TechBadge>
-                ))}
-            </div>
         </a>
     );
 }
