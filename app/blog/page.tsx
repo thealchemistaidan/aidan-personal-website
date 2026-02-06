@@ -18,10 +18,12 @@ export type MetadataProps = {
 export default async function Blog() {
     const posts = await getAllPostsFrontmatter();
     return (
-        <main className="flex items-center flex-col lg:py-16 py-8 px-5 h-full min-h-screen">
-            <Header />
+        <main className="flex items-center flex-col py-8 px-4 flex-1">
             <section className="flex flex-col gap-4 max-w-2xl w-full mt-8">
-                <h2 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider">WRITING</h2>
+                <h2 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider">
+                    WRITING
+                </h2>
+                <div className="grid grid-cols-1 auto-rows-[1fr] gap-4">
                 {posts
                     ?.filter((post) => {
                         if (
@@ -41,8 +43,11 @@ export default async function Blog() {
                             date={post.date}
                         />
                     ))}
+                </div>
             </section>
-            <Footer />
+            <div className="mt-auto w-full max-w-2xl">
+                <Footer />
+            </div>
         </main>
     );
 }

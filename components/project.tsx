@@ -17,7 +17,7 @@ export function Project({
     return (
         <a
             href={link}
-            className="calm-card flex flex-col gap-3 relative group"
+            className="calm-card flex flex-col gap-3 relative group overflow-hidden"
         >
             <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-text-primary">{name}</p>

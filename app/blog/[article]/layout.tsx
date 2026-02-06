@@ -31,7 +31,7 @@ export default async function Layout({
     const { visibility, title, subtitle } = await getPostFrontmatter(slug);
 
     return (
-        <article className="flex flex-col items-center text-left px-5 lg:py-16 py-8 gap-10 min-h-screen h-full">
+        <article className="flex flex-col items-center text-left px-4 py-8 gap-4 min-h-screen h-full">
             <Header title={title} subtitle={subtitle} />
             <section className="max-w-2xl w-full text-base leading-relaxed text-text-primary">
                 {children}

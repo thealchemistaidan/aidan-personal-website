@@ -62,8 +62,9 @@ const EXPERIENCES = [
 
 export function Experience() {
     return (
-        <section className="flex lg:w-2/5 w-full flex-col gap-4">
+        <section className="flex lg:flex-1 w-full flex-col gap-4">
             <h2 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider mt-2">EXPERIENCE</h2>
+            <div className="grid grid-cols-1 gap-4">
             {EXPERIENCES.map(
                 ({ title, description, image, date, location }, index) => (
                     <ExperienceComponent
@@ -76,6 +77,7 @@ export function Experience() {
                     />
                 )
             )}
+            </div>
         </section>
     );
 }

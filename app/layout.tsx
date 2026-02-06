@@ -21,13 +21,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className="overflow-x-hidden">
             <body
-                className={`${inter.variable} antialiased min-h-screen flex flex-col relative`}
+                className={`${inter.variable} antialiased min-h-screen flex flex-col overflow-x-hidden`}
                 style={{ fontFamily: 'var(--font-inter), Inter, system-ui, sans-serif' }}
             >
-                {children}
                 <Navbar />
+                {children}
                 <Analytics />
             </body>
         </html>

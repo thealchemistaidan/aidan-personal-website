@@ -1,21 +1,21 @@
 @import 'tailwindcss';
 
 :root {
-    --bg-base: #FFFFFF;
-    --bg-section: #FAFAFA;
-    --bg-card: #FFFFFF;
-    --text-primary: #1A1A1A;
-    --text-secondary: #5A5A5A;
-    --text-tertiary: #8F8F8F;
-    --accent-primary: #3F76FF;
-    --accent-secondary: #FF9F0A;
-    --border-light: #EDEDED;
-    --border-medium: #DFDFDF;
-    --border-dark: #C4C4C4;
-    --shadow-subtle: rgba(0,0,0,0.04);
-    --shadow-medium: rgba(0,0,0,0.08);
-    --shadow-card: 0px 2px 8px rgba(0,0,0,0.06);
-    --shadow-floating: 0px 4px 16px rgba(0,0,0,0.08);
+    --bg-base: #ffffff;
+    --bg-section: #fafafa;
+    --bg-card: #ffffff;
+    --text-primary: #1a1a1a;
+    --text-secondary: #5a5a5a;
+    --text-tertiary: #8f8f8f;
+    --accent-primary: #3f76ff;
+    --accent-secondary: #ff9f0a;
+    --border-light: #ededed;
+    --border-medium: #dfdfdf;
+    --border-dark: #c4c4c4;
+    --shadow-subtle: rgba(0, 0, 0, 0.04);
+    --shadow-medium: rgba(0, 0, 0, 0.08);
+    --shadow-card: 0px 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-floating: 0px 4px 16px rgba(0, 0, 0, 0.08);
     --radius-sm: 4px;
     --radius-md: 6px;
     --radius-lg: 12px;
@@ -42,8 +42,10 @@
         background: var(--bg-card);
         border: 1px solid var(--border-light);
         border-radius: var(--radius-lg);
-        padding: 24px;
-        transition: box-shadow 200ms ease-out, transform 200ms ease-out;
+        padding: 14px 16px;
+        transition:
+            box-shadow 200ms ease-out,
+            transform 200ms ease-out;
         position: relative;
         box-shadow: var(--shadow-card);
     }
@@ -51,19 +53,6 @@
     .calm-card:hover {
         box-shadow: var(--shadow-floating);
         transform: translateY(-2px);
-    }
-
-    .calm-navbar {
-        background: var(--bg-card);
-        border: 1px solid var(--border-light);
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-floating);
-        transition: box-shadow 200ms ease-out;
-        position: fixed;
-    }
-
-    .calm-navbar:hover {
-        box-shadow: 0px 6px 24px rgba(0,0,0,0.10);
     }
 
     .nav-link-active {
@@ -74,7 +63,7 @@
     .nav-link-active::after {
         content: '';
         position: absolute;
-        bottom: -4px;
+        bottom: -2px;
         left: 0;
         right: 0;
         height: 2px;

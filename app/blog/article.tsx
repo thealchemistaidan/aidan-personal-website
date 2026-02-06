@@ -17,16 +17,14 @@ export function Post({
     return (
         <Link
             href={`/blog/${slug}`}
-            className="flex flex-col calm-card justify-center gap-2 w-full"
+            className="flex flex-col calm-card py-6 justify-start gap-2 w-full overflow-hidden"
         >
             <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-text-primary">{title}</p>
                 <p className="text-text-tertiary text-xs uppercase">{date}</p>
             </div>
             <div className="flex justify-between items-center">
-                <p className="text-sm text-text-secondary">
-                    {subtitle}
-                </p>
+                <p className="text-sm text-text-secondary">{subtitle}</p>
                 <div className="flex gap-2">
                     {badges?.map((badge, index) => (
                         <Badge key={index} color="blue" className="uppercase">

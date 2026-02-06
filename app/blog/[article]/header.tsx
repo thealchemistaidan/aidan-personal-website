@@ -6,10 +6,8 @@ export function Header({
     subtitle: string;
 }) {
     return (
-        <header className="flex flex-col w-full items-center justify-center mx-auto gap-3 text-center py-8">
-            <h1
-                className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight tracking-tight transition-all duration-200"
-            >
+        <header className="flex flex-col w-full items-center justify-center mx-auto gap-3 text-center">
+            <h1 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight tracking-tight transition-all duration-200">
                 {title}
             </h1>
             <div className="flex gap-4 items-center mt-2">
