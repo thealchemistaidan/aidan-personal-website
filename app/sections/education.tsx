@@ -1,15 +1,76 @@
+import Image from 'next/image';
 import { Education as EducationComponent } from '@/components/education';
 
 const EDUCATION = [
     {
-        title: "Queen's University",
-        description: 'Bachelor of Commerce, Smith School of Business',
+        title: 'Oxford University',
+        description: 'PhD in Education',
         image: (
-            <div className="w-10 h-10 rounded-lg bg-bg-section border border-border-light flex items-center justify-center">
-                <span className="text-sm font-semibold text-text-secondary">Q</span>
-            </div>
+            <Image
+                width={40}
+                height={40}
+                src="/oxford.jpeg"
+                alt="Oxford University Logo"
+                className="rounded-lg"
+            />
         ),
-        gradDate: 'GRADUATING APR 2028',
+        gradDate: '2025 – 2028',
+    },
+    {
+        title: 'Cambridge University',
+        description: 'Masters in Education (MEd)',
+        image: (
+            <Image
+                width={40}
+                height={40}
+                src="/cambridge.png"
+                alt="Cambridge University Logo"
+                className="rounded-lg"
+            />
+        ),
+        gradDate: '2024 – 2025',
+    },
+    {
+        title: 'The Cansbridge Fellowship',
+        description: "Cansbridge Fellow '22",
+        image: (
+            <Image
+                width={40}
+                height={40}
+                src="/cansbridge.jpeg"
+                alt="Cansbridge Fellowship Logo"
+                className="rounded-lg"
+            />
+        ),
+        gradDate: '2022',
+    },
+    {
+        title: "Queen's University",
+        description: 'Bachelor of Education (BEd)',
+        image: (
+            <Image
+                width={40}
+                height={40}
+                src="/queens.png"
+                alt="Queen's University Logo"
+                className="rounded-lg"
+            />
+        ),
+        gradDate: '2019 – 2024',
+    },
+    {
+        title: "Queen's University",
+        description: 'Bachelor of Arts (Global Dev Studies)',
+        image: (
+            <Image
+                width={40}
+                height={40}
+                src="/queens.png"
+                alt="Queen's University Logo"
+                className="rounded-lg"
+            />
+        ),
+        gradDate: '2019 – 2024',
     },
 ];
 
@@ -20,17 +81,17 @@ export function Education() {
                 EDUCATION
             </h2>
             <div className="grid grid-cols-1 auto-rows-[1fr] gap-4">
-            {EDUCATION.map(
-                ({ title, description, image, gradDate }, index) => (
-                    <EducationComponent
-                        key={index}
-                        title={title}
-                        description={description}
-                        image={image}
-                        gradDate={gradDate}
-                    />
-                )
-            )}
+                {EDUCATION.map(
+                    ({ title, description, image, gradDate }, index) => (
+                        <EducationComponent
+                            key={index}
+                            title={title}
+                            description={description}
+                            image={image}
+                            gradDate={gradDate}
+                        />
+                    ),
+                )}
             </div>
         </section>
     );

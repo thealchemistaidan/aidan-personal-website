@@ -29,26 +29,37 @@ const PROJECTS = [
     },
 ];
 
-const INITIAL_COUNT = 2;
+const MOBILE_COUNT = 2;
+const DESKTOP_COUNT = 4;
 
-export function Projects() {
+export function Writing() {
     const [showAll, setShowAll] = useState(false);
     const extraRef = useRef<HTMLDivElement>(null);
     const [extraHeight, setExtraHeight] = useState(0);
+    const [initialCount, setInitialCount] = useState(MOBILE_COUNT);
+
+    useEffect(() => {
+        const updateCount = () => {
+            setInitialCount(window.innerWidth >= 1024 ? DESKTOP_COUNT : MOBILE_COUNT);
+        };
+        updateCount();
+        window.addEventListener('resize', updateCount);
+        return () => window.removeEventListener('resize', updateCount);
+    }, []);
 
     useEffect(() => {
         if (extraRef.current) {
             setExtraHeight(extraRef.current.scrollHeight);
         }
-    }, []);
+    }, [initialCount]);
 
-    const initialProjects = PROJECTS.slice(0, INITIAL_COUNT);
-    const extraProjects = PROJECTS.slice(INITIAL_COUNT);
+    const initialProjects = PROJECTS.slice(0, initialCount);
+    const extraProjects = PROJECTS.slice(initialCount);
 
     return (
-        <section className="flex flex-col gap-4 lg:flex-1">
-            <h2 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider lg:mt-2">PROJECTS</h2>
-            <div className="grid grid-cols-1 auto-rows-[1fr] gap-4">
+        <section className="flex flex-col gap-4 w-full lg:w-2/3">
+            <h2 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider lg:mt-2">WRITING</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 auto-rows-[1fr] gap-4">
                 {initialProjects.map(
                     ({ name, description, link, badges, image }, index) => (
                         <Project
@@ -69,11 +80,11 @@ export function Projects() {
                         className="overflow-hidden transition-all duration-300 ease-in-out"
                         style={{ maxHeight: showAll ? extraHeight : 0, opacity: showAll ? 1 : 0 }}
                     >
-                        <div className="grid grid-cols-1 auto-rows-[1fr] gap-4">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 auto-rows-[1fr] gap-4">
                             {extraProjects.map(
                                 ({ name, description, link, badges, image }, index) => (
                                     <Project
-                                        key={index + INITIAL_COUNT}
+                                        key={index + initialCount}
                                         name={name}
                                         description={description}
                                         link={link}

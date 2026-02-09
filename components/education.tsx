@@ -12,7 +12,7 @@ export function Education({
     description: string;
 }) {
     return (
-        <div className="flex calm-card !py-5 gap-4 items-center overflow-hidden">
+        <div className="flex calm-card gap-3 items-center overflow-hidden">
             <div className="shrink-0 rounded-lg overflow-hidden">{image}</div>
             <div className="flex flex-col justify-center gap-1 w-full min-w-0">
                 <div className="flex items-center justify-between">

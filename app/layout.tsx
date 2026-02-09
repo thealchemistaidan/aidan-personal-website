@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-    title: 'Evan Ferreira',
+    title: 'Aidan Gurung',
     description:
-        'Business student passionate about software, startups, and side quests.',
+        'PhD student at Oxford University, studying Education as a Rhodes Scholar.',
 };
 
 export default function RootLayout({
@@ -24,7 +24,10 @@ export default function RootLayout({
         <html lang="en" className="overflow-x-hidden">
             <body
                 className={`${inter.variable} antialiased min-h-screen flex flex-col overflow-x-hidden`}
-                style={{ fontFamily: 'var(--font-inter), Inter, system-ui, sans-serif' }}
+                style={{
+                    fontFamily:
+                        'var(--font-inter), Inter, system-ui, sans-serif',
+                }}
             >
                 <Navbar />
                 {children}

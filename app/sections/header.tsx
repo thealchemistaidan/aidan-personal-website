@@ -2,25 +2,16 @@ import Image from 'next/image';
 
 export function Header() {
     return (
-        <header className="flex lg:flex-row flex-col justify-center w-full gap-8 lg:gap-12 items-center">
+        <header className="flex lg:flex-row flex-col justify-center w-full gap-4 lg:gap-12 items-center">
             <div className="shrink-0">
-                <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-bg-section border border-border-light overflow-hidden shadow-sm">
-                    <svg
-                        viewBox="0 0 200 200"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-full h-full"
-                    >
-                        <rect width="200" height="200" fill="#FAFAFA" />
-                        <circle cx="100" cy="78" r="35" fill="#DFDFDF" />
-                        <ellipse
-                            cx="100"
-                            cy="165"
-                            rx="55"
-                            ry="45"
-                            fill="#DFDFDF"
-                        />
-                    </svg>
+                <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-bg-section border-2 border-border-light overflow-hidden shadow-sm">
+                    <Image
+                        src="/pfp.jpeg"
+                        alt="Aidan Gurung"
+                        width={160}
+                        height={160}
+                        className="w-full h-full object-cover"
+                    />
                 </div>
             </div>
             <div className="flex flex-col  gap-4 text-center lg:text-left">
