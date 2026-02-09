@@ -18,7 +18,8 @@ export function Navbar() {
                 <div className="flex items-center gap-4">
                     <div className="flex items-center gap-3">
                         <a
-                            href="https://www.linkedin.com/in/aidan-gurung-29649219a/"
+                            href="https://www.linkedin.com/in/aidan-gurung-29649219a/
+                            "
                             className="flex items-center justify-center text-text-secondary hover:text-accent transition-colors ease-out duration-200"
                         >
                             <svg
