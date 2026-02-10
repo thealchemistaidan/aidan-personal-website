@@ -27,6 +27,20 @@ const PROJECTS = [
         badges: ['WEB APP', 'FULL STACK'],
         image: '/stumble.png',
     },
+    {
+        name: 'Stumble',
+        description: 'Leetcode platform for dating.',
+        link: 'https://github.com/Evan-Ferreira/Stumble_HackTheHill2024',
+        badges: ['WEB APP', 'FULL STACK'],
+        image: '/stumble.png',
+    },
+    {
+        name: 'Stumble',
+        description: 'Leetcode platform for dating.',
+        link: 'https://github.com/Evan-Ferreira/Stumble_HackTheHill2024',
+        badges: ['WEB APP', 'FULL STACK'],
+        image: '/stumble.png',
+    },
 ];
 
 const MOBILE_COUNT = 2;
@@ -40,7 +54,9 @@ export function Writing() {
 
     useEffect(() => {
         const updateCount = () => {
-            setInitialCount(window.innerWidth >= 1024 ? DESKTOP_COUNT : MOBILE_COUNT);
+            setInitialCount(
+                window.innerWidth >= 1024 ? DESKTOP_COUNT : MOBILE_COUNT,
+            );
         };
         updateCount();
         window.addEventListener('resize', updateCount);
@@ -58,7 +74,9 @@ export function Writing() {
 
     return (
         <section className="flex flex-col gap-4 w-full lg:w-2/3">
-            <h2 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider lg:mt-2">WRITING</h2>
+            <h2 className="text-xs font-semibold text-text-tertiary uppercase tracking-wider lg:mt-2">
+                WRITING
+            </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 auto-rows-[1fr] gap-4">
                 {initialProjects.map(
                     ({ name, description, link, badges, image }, index) => (
@@ -70,7 +88,7 @@ export function Writing() {
                             badges={badges}
                             image={image}
                         />
-                    )
+                    ),
                 )}
             </div>
             {extraProjects.length > 0 && (
@@ -78,11 +96,17 @@ export function Writing() {
                     <div
                         ref={extraRef}
                         className="overflow-hidden transition-all duration-300 ease-in-out"
-                        style={{ maxHeight: showAll ? extraHeight : 0, opacity: showAll ? 1 : 0 }}
+                        style={{
+                            maxHeight: showAll ? extraHeight : 0,
+                            opacity: showAll ? 1 : 0,
+                        }}
                     >
                         <div className="grid grid-cols-1 lg:grid-cols-2 auto-rows-[1fr] gap-4">
                             {extraProjects.map(
-                                ({ name, description, link, badges, image }, index) => (
+                                (
+                                    { name, description, link, badges, image },
+                                    index,
+                                ) => (
                                     <Project
                                         key={index + initialCount}
                                         name={name}
@@ -91,7 +115,7 @@ export function Writing() {
                                         badges={badges}
                                         image={image}
                                     />
-                                )
+                                ),
                             )}
                         </div>
                     </div>
@@ -99,7 +123,11 @@ export function Writing() {
                         onClick={() => setShowAll(!showAll)}
                         className={`flex items-center justify-center gap-2 py-0 text-sm text-text-tertiary hover:text-accent transition-all duration-300 ease-in-out cursor-pointer ${showAll ? 'mt-0' : '-mt-4'}`}
                     >
-                        <span>{showAll ? 'Show less' : `Show more (${extraProjects.length})`}</span>
+                        <span>
+                            {showAll
+                                ? 'Show less'
+                                : `Show more (${extraProjects.length})`}
+                        </span>
                         <svg
                             width="12"
                             height="12"
@@ -108,7 +136,13 @@ export function Writing() {
                             xmlns="http://www.w3.org/2000/svg"
                             className={`transition-transform duration-300 ease-in-out ${showAll ? 'rotate-180' : ''}`}
                         >
-                            <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            <path
+                                d="M2.5 4.5L6 8L9.5 4.5"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
                         </svg>
                     </button>
                 </>
