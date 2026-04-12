@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { supabase } from "@/utils/supabase";
 
 const HABITS = [
   { id: 1, label: "Diet — no sugar", emoji: "🍎" },
@@ -29,10 +30,51 @@ const DAYS = Array.from({ length: TOTAL_DAYS }, (_, i) => getDayLabel(i));
 
 export default function HabitsPage() {
   const [checks, setChecks] = useState<Record<string, boolean>>({});
+  const [loading, setLoading] = useState(true);
 
-  const toggle = (day: number, habitId: number) => {
+  useEffect(() => {
+    (async () => {
+      const { data, error } = await supabase
+        .from("habit_checks")
+        .select("day_index, habit_id");
+      if (error) {
+        console.error("Failed to load habit_checks:", error);
+      } else if (data) {
+        const next: Record<string, boolean> = {};
+        for (const row of data) {
+          next[`${row.day_index}-${row.habit_id}`] = true;
+        }
+        setChecks(next);
+      }
+      setLoading(false);
+    })();
+  }, []);
+
+  const toggle = async (day: number, habitId: number) => {
     const key = `${day}-${habitId}`;
-    setChecks((prev) => ({ ...prev, [key]: !prev[key] }));
+    const wasChecked = !!checks[key];
+
+    setChecks((prev) => ({ ...prev, [key]: !wasChecked }));
+
+    if (wasChecked) {
+      const { error } = await supabase
+        .from("habit_checks")
+        .delete()
+        .eq("day_index", day)
+        .eq("habit_id", habitId);
+      if (error) {
+        console.error("Delete failed:", error);
+        setChecks((prev) => ({ ...prev, [key]: true }));
+      }
+    } else {
+      const { error } = await supabase
+        .from("habit_checks")
+        .insert({ day_index: day, habit_id: habitId });
+      if (error) {
+        console.error("Insert failed:", error);
+        setChecks((prev) => ({ ...prev, [key]: false }));
+      }
+    }
   };
 
   const getDayComplete = (day: number) =>
