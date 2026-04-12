@@ -16,6 +16,12 @@ export function Navbar() {
                     Aidan Gurung
                 </Link>
                 <div className="flex items-center gap-4">
+                    <Link
+                        href="/habits"
+                        className={`text-sm font-medium transition-colors duration-200 ${pathname === '/habits' ? 'text-text-primary' : 'text-text-secondary hover:text-text-primary'}`}
+                    >
+                        Habits
+                    </Link>
                     <div className="flex items-center gap-3">
                         <a
                             href="https://www.linkedin.com/in/aidan-gurung-29649219a/
